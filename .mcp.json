@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "garmin": {
+      "command": "uvx",
+      "args": [
+        "--python",
+        "3.12",
+        "--from",
+        "git+https://github.com/Taxuspt/garmin_mcp@a2ca5fcac34524b83814fe2fcf3d479f8a75983f",
+        "garmin-mcp"
+      ],
+      "env": {
+        "GARMIN_ENABLED_TOOLS": "get_activities,get_activities_by_date,get_activity,get_activity_splits,get_activity_hr_in_timezones,get_sleep_summary,get_hrv_trend,get_rhr_day,get_body_battery,get_training_readiness,get_training_status,get_training_load_trend,get_vo2max_trend,get_race_predictions,get_devices,get_workouts,get_workout_by_id,upload_workout,create_walk_run_workout,create_strength_workout,delete_workout,schedule_workout"
+      }
+    }
+  }
+}

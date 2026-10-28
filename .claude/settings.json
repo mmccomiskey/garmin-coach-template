@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__garmin__get_activities",
+      "mcp__garmin__get_activities_by_date",
+      "mcp__garmin__get_activity",
+      "mcp__garmin__get_activity_splits",
+      "mcp__garmin__get_activity_hr_in_timezones",
+      "mcp__garmin__get_sleep_summary",
+      "mcp__garmin__get_hrv_trend",
+      "mcp__garmin__get_rhr_day",
+      "mcp__garmin__get_body_battery",
+      "mcp__garmin__get_training_readiness",
+      "mcp__garmin__get_training_status",
+      "mcp__garmin__get_training_load_trend",
+      "mcp__garmin__get_vo2max_trend",
+      "mcp__garmin__get_race_predictions",
+      "mcp__garmin__get_devices",
+      "mcp__garmin__get_workouts",
+      "mcp__garmin__get_workout_by_id"
+    ]
+  }
+}
