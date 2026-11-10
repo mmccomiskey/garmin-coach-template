@@ -30,7 +30,13 @@ personal Mac or Windows computer (work laptops often block this).
    Desktop, open the **Code** tab and choose that folder.
 3. Paste the setup message below and follow along.
 
-### With Cline
+### With Cline Desktop and your own AI key
+
+See **[CLINE_SETUP.md](CLINE_SETUP.md)** for a full walkthrough: installing
+Cline Desktop, getting a Claude or Gemini API key, and keeping your health
+data private.
+
+### With Cline in VS Code
 
 1. Install [VS Code](https://code.visualstudio.com/), then install the
    **Cline** extension from the Extensions panel.
