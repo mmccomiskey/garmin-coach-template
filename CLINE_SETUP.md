@@ -103,6 +103,9 @@ What happens next:
   you're connected. Never paste your password into the chat. (If the
   page can't start, Cline opens a terminal window for the login
   instead; on a Mac, click OK if asked to let Cline control Terminal.)
+  While the page is open, Cline shows the login command as still
+  running. Leave it until the page says you're connected; Cline moves on
+  by itself.
 - **Cline adds the Garmin connection to its settings.** Check that
   **garmin** shows up as connected in Cline's installed MCP servers
   list.
@@ -137,5 +140,8 @@ Or just ask questions in plain words.
 | "Model stream failed" or a timeout right after the Garmin login or connection | Normal the first time Cline starts the Garmin connection. Send another message, like "check get_devices". If it keeps happening, start a new task in the same folder. |
 | Garmin isn't connected | Ask Cline: "The garmin MCP server isn't connected. Check its entry in the MCP settings and fix it." |
 | The coach seems to ignore its rules | Tell it: "Read AGENTS.md first." |
-| Garmin login fails | Wait an hour before trying again. Garmin blocks repeated attempts. |
+| The Garmin login page didn't open | Ask Cline for the link. It prints one if the browser doesn't open on its own. |
+| The login page says "Not found" or the login already finished | The page only works once and closes after 15 minutes. Ask Cline to start the Garmin login again. |
+| The verification code didn't work | Codes expire after a few minutes. Wait a bit, then ask Cline to start the login again and use the newest code. |
+| Garmin login fails, or the page says to wait | Wait an hour before trying again. Garmin blocks repeated attempts. |
 | Workouts look wrong on the watch | Ask the coach to read the workout back and fix it, or switch to a stronger model. |
