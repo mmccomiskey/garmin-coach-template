@@ -97,10 +97,11 @@ What happens next:
 - **Cline asks before running each command.** Read what it says it's
   doing and approve. It installs a small tool called uv, which runs the
   Garmin connector.
-- **You do the Garmin login yourself.** Cline gives you one command to
-  run in a terminal (Mac: Cmd+Space, type Terminal; Windows: Start menu,
-  type PowerShell). You type your Garmin email, password and
-  verification code there. Never paste your password into the chat.
+- **You do the Garmin login yourself.** Cline opens a terminal window
+  with the Garmin login already started. On a Mac, the first time, you'll
+  be asked to let Cline control Terminal; click OK. Type your Garmin
+  email, password and verification code in that window, then tell Cline
+  "done". Never paste your password into the chat.
 - **Cline adds the Garmin connection to its settings.** Check that
   **garmin** shows up as connected in Cline's installed MCP servers
   list.
