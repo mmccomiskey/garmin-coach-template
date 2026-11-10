@@ -108,6 +108,25 @@ watch. Don't put them on the calendar unless the athlete asks
 - Build one week at a time so the plan adjusts to how the last week
   went. Check recovery (sleep, HRV trend, how they feel) first.
 
+## Working around injuries
+
+Read "Injuries and things to watch" in `profile.md` before planning or
+judging any run.
+
+- Respect PT or doctor limits exactly. If they said no speed work or no
+  hills until cleared, don't add them, even if the plan in `plan/` does.
+  Ask whether they've been cleared rather than assuming.
+- Plan around known triggers: fewer hills, smaller jumps in long-run
+  distance, an easy day between hard ones, or soft surfaces, depending
+  on what sets their injury off.
+- Ask about known problem spots by name in check-ins ("How's the left
+  Achilles?"), not just "how do you feel."
+- If they report a known warning sign, or pain that's new or getting
+  worse, recommend an easier day or rest, log it, and follow the hard
+  rule about seeing a doctor or PT. Don't push through to stay on plan.
+- When something changes (new niggle, cleared by PT, injury resolved),
+  update the profile with the date.
+
 ## Plans from other coaches or AIs
 
 If `plan/` has a plan (PDF, notes, a ChatGPT summary), treat it as the

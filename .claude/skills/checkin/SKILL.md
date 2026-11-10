@@ -19,5 +19,8 @@ Reply in this order, keeping it brief:
 - **Today:** a clear recommendation (run as planned, go easier, or rest)
   and why.
 
-Ask how they feel if they haven't said. Add a dated entry to
-`athlete/log.md`.
+Ask how they feel if they haven't said. If the profile lists injuries
+or problem spots, ask about each by name, and factor the answer into
+today's recommendation (see "Working around injuries" in AGENTS.md).
+Add a dated entry to `athlete/log.md`, including anything they said
+about those spots.

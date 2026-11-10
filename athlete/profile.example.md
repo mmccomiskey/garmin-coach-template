@@ -25,7 +25,11 @@ Claude copies this to `profile.md` during `/setup` and keeps it current.
 -
 
 ## Injuries and things to watch
--
+- Current pain or niggles:
+- Past injuries (and whether they recur):
+- PT or doctor guidance (limits, cleared for what, as of when):
+- Triggers (hills, speed, long runs, shoes, surfaces):
+- Early warning signs:
 
 ## Gear
 - Watch:
