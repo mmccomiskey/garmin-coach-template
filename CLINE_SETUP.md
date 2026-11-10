@@ -133,6 +133,7 @@ Or just ask questions in plain words.
 |---|---|
 | "Invalid API key" or "credit balance" errors | Anthropic: check you bought credit. Gemini: check the key was copied fully and billing is linked. |
 | "Rate limit" or "quota" errors | Wait a minute and try again. On Gemini, this usually means you're still on the free tier. |
+| "Model stream failed" or a timeout right after the Garmin login or connection | Normal the first time Cline starts the Garmin connection. Send another message, like "check get_devices". If it keeps happening, start a new task in the same folder. |
 | Garmin isn't connected | Ask Cline: "The garmin MCP server isn't connected. Check its entry in the MCP settings and fix it." |
 | The coach seems to ignore its rules | Tell it: "Read AGENTS.md first." |
 | Garmin login fails | Wait an hour before trying again. Garmin blocks repeated attempts. |
