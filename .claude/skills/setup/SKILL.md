@@ -18,20 +18,40 @@ done, and say so.
    Windows: usually `%USERPROFILE%\.local\bin\uvx.exe`). Write it down
    as an absolute path; later steps need it.
 
-3. **Garmin login (the athlete does this part).** Check whether
-   `~/.garminconnect` exists (don't open it). If it doesn't, tell them:
-   - Open a terminal (macOS: Cmd+Space, type Terminal; Windows: Start
-     menu, type PowerShell). A terminal panel inside the app works too.
-   - Paste the command below, using the full uvx path if `uvx` alone
-     isn't found. Take the git URL from `.mcp.json` so the version
-     matches:
-     `uvx --python 3.12 --from <git URL from .mcp.json> garmin-mcp-auth`
-   - Type their Garmin email, password, and the verification code if
-     Garmin sends one. Password characters won't show; that's normal.
-   - Tell you when it says the tokens were saved.
+3. **Garmin login (the athlete types, you open the terminal).** Check
+   whether `~/.garminconnect` exists (don't open it). If it does, skip to
+   the verify command at the end of this step.
 
-   Never ask for the password in chat. If the login fails, follow the
-   retry rule in AGENTS.md.
+   The login command, with the absolute uvx path and the git URL from
+   `.mcp.json` so the version matches:
+   `<full uvx path> --python 3.12 --from <git URL from .mcp.json> garmin-mcp-auth`
+
+   First tell the athlete what's about to happen: a terminal will open
+   and ask for their Garmin email, password, and a verification code if
+   Garmin sends one; password characters won't show, which is normal;
+   and they should come back and say "done" when it finishes. Then open
+   the terminal for them, using the first option that works:
+
+   a. **The app's own terminal.** If you have a tool that opens a
+      terminal tab the athlete can see and type in (Claude Desktop's
+      Code tab has one), start the command there.
+   b. **A new terminal window.**
+      - macOS: `osascript -e 'tell application "Terminal" to activate' -e 'tell application "Terminal" to do script "<login command>"'`.
+        The first time, macOS asks to let the app control Terminal;
+        tell the athlete to click OK.
+      - Windows: `Start-Process powershell -ArgumentList '-NoExit','-Command','& "<full uvx path>" --python 3.12 --from <git URL> garmin-mcp-auth'`
+   c. **Cline in VS Code:** run the command normally; it opens in VS
+      Code's terminal panel, where the athlete can click and type.
+   d. **If none of those work**, tell them how to open a terminal
+      themselves (macOS: Cmd+Space, type Terminal; Windows: Start menu,
+      type PowerShell) and give them the command to paste.
+
+   Never type into the terminal yourself or pass credentials any other
+   way. When they say done, check it worked without asking them to read
+   anything back:
+   `<full uvx path> --python 3.12 --from <git URL> garmin-mcp-auth --verify`
+
+   If the login or verify fails, follow the retry rule in AGENTS.md.
 
 4. **Connect the server.** This step depends on the assistant.
 
