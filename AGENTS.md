@@ -35,10 +35,12 @@ tool list.
 ## Hard rules
 
 - **Never ask for, read, or handle the athlete's Garmin password.** The
-  one-time login (`garmin-mcp-auth`) is interactive and the athlete types
-  their own credentials. You may open a terminal for them with the
-  command already started (see `/setup`), but never type, pipe, or send
-  input into it, and never put credentials in env vars or arguments.
+  one-time login is interactive and the athlete types their own
+  credentials, either on the local browser page that
+  `scripts/garmin-login.py` opens or in a terminal running
+  `garmin-mcp-auth` (see `/setup`). You may start either for them, but
+  never fill in the page, type, pipe, or send input, and never put
+  credentials in env vars or arguments.
 - **Don't retry a failed Garmin login more than once an hour.** Garmin's
   login page rate-limits and can block for hours after repeated attempts
   (HTTP 403, "Too many requests", or a Cloudflare 1015 page). If it

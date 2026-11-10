@@ -1,6 +1,6 @@
 ---
 name: setup
-description: One-time setup for the Garmin running coach. Installs uv, walks the athlete through the Garmin login, connects the Garmin MCP server in Claude Code or Cline, and creates the athlete profile. Use when the athlete types /setup or the Garmin server isn't connected yet.
+description: One-time setup for the Garmin running coach. Installs uv, walks the athlete through the Garmin login in their browser, connects the Garmin MCP server in Claude Code or Cline, and creates the athlete profile. Use when the athlete types /setup or the Garmin server isn't connected yet.
 ---
 
 Walk the athlete through setup one step at a time. Before each step, say
@@ -18,19 +18,45 @@ done, and say so.
    Windows: usually `%USERPROFILE%\.local\bin\uvx.exe`). Write it down
    as an absolute path; later steps need it.
 
-3. **Garmin login (the athlete types, you open the terminal).** Check
+3. **Garmin login (the athlete types, in their browser).** Check
    whether `~/.garminconnect` exists (don't open it). If it does, skip to
    the verify command at the end of this step.
 
-   The login command, with the absolute uvx path and the git URL from
-   `.mcp.json` so the version matches:
+   First tell the athlete what's about to happen: a Garmin login page
+   will open in their web browser; they sign in there with their Garmin
+   email and password, plus a verification code if Garmin sends one; and
+   the page will say when they're connected. Their password goes from
+   that page straight to Garmin, so remind them never to paste it into
+   the chat.
+
+   **Preferred: the browser login.** From this folder, run
+   `<full uv path> run scripts/garmin-login.py` (`uv` sits next to
+   `uvx`). It opens the page itself and keeps running until the athlete
+   finishes, for up to 15 minutes. In Claude Code, run it in the
+   background and wait for it to exit; in Cline, run it normally. It
+   prints one status line at a time:
+   - `ALREADY_CONNECTED` or `SUCCESS`: done, go to the verify command.
+   - `OPEN_THIS: <link>`: the browser didn't open; give them the link.
+   - `WAITING: Garmin sent a verification code`: tell them to check
+     their email or phone and type the code on the page.
+   - `RETRY`: Garmin rejected the password once; the page lets them try
+     one more time.
+   - `FAILED` or `RATE_LIMITED`: follow the retry rule in AGENTS.md.
+   - `TIMED_OUT` or `STOPPED`: ask whether they want to try again.
+
+   Never put anything into the script's input, arguments, or env, and
+   don't open the page yourself. The athlete uses it, not you.
+
+   **Fallback: the terminal login.** Use it only if the script won't
+   start (for example, `uv` can't download its one dependency). The
+   command, with the absolute uvx path and the git URL from `.mcp.json`
+   so the version matches:
    `<full uvx path> --python 3.12 --from <git URL from .mcp.json> garmin-mcp-auth`
 
-   First tell the athlete what's about to happen: a terminal will open
-   and ask for their Garmin email, password, and a verification code if
-   Garmin sends one; password characters won't show, which is normal;
-   and they should come back and say "done" when it finishes. Then open
-   the terminal for them, using the first option that works:
+   Tell them a terminal will open and ask for their email, password and
+   code, that password characters won't show, and to come back and say
+   "done". Then open the terminal for them, using the first option that
+   works:
 
    a. **The app's own terminal.** If you have a tool that opens a
       terminal tab the athlete can see and type in (Claude Desktop's
@@ -47,7 +73,9 @@ done, and say so.
       type PowerShell) and give them the command to paste.
 
    Never type into the terminal yourself or pass credentials any other
-   way. When they say done, check it worked without asking them to read
+   way.
+
+   **Verify.** Either way, confirm it worked without asking them to read
    anything back:
    `<full uvx path> --python 3.12 --from <git URL> garmin-mcp-auth --verify`
 
