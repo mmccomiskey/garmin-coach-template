@@ -1,5 +1,6 @@
 ---
-description: Plan next week and create the workouts on Garmin
+name: week
+description: Plans the athlete's next training week from their plan and recent training, then creates the workouts on Garmin after they approve. Use when the athlete types /week or asks for next week's runs.
 ---
 
 Plan the athlete's next training week and create the workouts.
@@ -14,9 +15,7 @@ Plan the athlete's next training week and create the workouts.
 4. Check `get_workouts` for workouts from this week that already exist,
    so you don't make duplicates.
 5. **Wait for the athlete's OK**, then create each workout following the
-   "Building workouts" rules in CLAUDE.md, and read each one back to
+   "Building workouts" rules in AGENTS.md, and read each one back to
    confirm it saved correctly.
 6. Tell them to sync their watch, and where to find the workouts on it.
 7. Add a dated entry to `athlete/log.md` summarizing the week ahead.
-
-$ARGUMENTS

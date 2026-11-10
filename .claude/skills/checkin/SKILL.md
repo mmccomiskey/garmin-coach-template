@@ -1,5 +1,6 @@
 ---
-description: How am I doing? Recovery, recent runs, and what to do today
+name: checkin
+description: Running coach check-in. Reviews last night's sleep, the HRV trend, resting HR, and the past week's runs, then recommends what to do today. Use when the athlete types /checkin or asks how they're doing or whether to run today.
 ---
 
 Give the athlete a short check-in.
@@ -19,4 +20,4 @@ Reply in this order, keeping it brief:
   and why.
 
 Ask how they feel if they haven't said. Add a dated entry to
-`athlete/log.md`. $ARGUMENTS
+`athlete/log.md`.
