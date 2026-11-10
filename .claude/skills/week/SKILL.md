@@ -8,10 +8,12 @@ Plan the athlete's next training week and create the workouts.
 1. Read `athlete/profile.md`, the latest `athlete/log.md` entries, and
    the plan in `plan/`.
 2. Review the week that just ended: runs vs. the plan, weekly mileage,
-   and recovery (sleep, HRV trend, resting HR). Ask how the week felt.
+   and recovery (sleep, HRV trend, resting HR). Ask how the week felt,
+   and ask about each injury or problem spot in the profile by name.
 3. Propose the week as a short table: day, workout, duration or
-   distance, target HR or pace. Adjust from the plan if recovery or the
-   last week calls for it, and say what you changed and why.
+   distance, target HR or pace. Adjust from the plan if recovery, the
+   last week, or an injury calls for it, following "Working around
+   injuries" in AGENTS.md, and say what you changed and why.
 4. Check `get_workouts` for workouts from this week that already exist,
    so you don't make duplicates.
 5. **Wait for the athlete's OK**, then create each workout following the

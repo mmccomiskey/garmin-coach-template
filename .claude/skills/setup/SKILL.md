@@ -108,9 +108,25 @@ done, and say so.
    `athlete/profile.md`. Fill in what you can from Garmin (recent weekly
    mileage, typical easy pace and HR, race predictions, devices). Then
    ask the athlete the remaining questions a few at a time, not all at
-   once: goal race and date, goal time, injuries, which days they can
-   run, long run day, and whether they know their max HR. If there's a
-   plan in `plan/`, read it and fill in from it too.
+   once: goal race and date, goal time, which days they can run, long
+   run day, and whether they know their max HR. If there's a plan in
+   `plan/`, read it and fill in from it too.
+
+   Then ask about injuries as their own short conversation, not one
+   item in a list:
+   - Anything hurting or bothering them right now, even a little?
+   - Past running injuries, especially ones that have come back
+     (shin splints, tendon or IT band trouble, stress fractures,
+     plantar fasciitis), and any surgeries.
+   - Are they seeing, or have they seen, a PT or doctor for it? What
+     did they say to do or avoid?
+   - What tends to set it off: hills, speed work, long runs, certain
+     shoes or surfaces, back-to-back days?
+   - Any early warning signs they've learned to notice.
+
+   Write the answers in the profile's "Injuries and things to watch"
+   section, including any limits a PT or doctor gave. If they have none,
+   write "None reported" with the date.
 
 7. **Optional, Claude Code only: free-plan fallback.** Ask if they also
    want Garmin in regular Claude Desktop chats, which works on the free
