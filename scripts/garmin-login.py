@@ -161,6 +161,9 @@ class Login:
         self.token = secrets.token_urlsafe(24)
         self.lock = threading.Lock()
         self.garmin: Garmin | None = None
+        # 0.3.2 returns ("needs_mfa", None) and keeps MFA state on the
+        # client, so track the pending code step separately.
+        self.awaiting_mfa = False
         self.mfa_state = None
         self.tries = 0
         self.result: tuple[int, str] | None = None
@@ -190,6 +193,7 @@ class Login:
                 first, second = self.garmin.client.login(
                     email, password, return_on_mfa=True)
             if first == "needs_mfa":
+                self.awaiting_mfa = True
                 self.mfa_state = second
                 return "mfa", ""
             name = self.save()
@@ -272,7 +276,7 @@ def make_handler(state: Login, port: int):
             if state.result:
                 return self._send(200, done_page(
                     state.result[0] == 0, "This login has already finished."))
-            if state.mfa_state is not None:
+            if state.awaiting_mfa:
                 return self._send(200, mfa_form(state.token))
             self._send(200, login_form(state.token))
 
@@ -295,10 +299,10 @@ def make_handler(state: Login, port: int):
                         state.result[0] == 0,
                         "This login has already finished."))
                 route = urlparse(self.path).path
-                if route == "/login" and state.mfa_state is None:
+                if route == "/login" and not state.awaiting_mfa:
                     kind, msg = state.submit_password(
                         field("email").strip(), field("password"))
-                elif route == "/mfa" and state.mfa_state is not None:
+                elif route == "/mfa" and state.awaiting_mfa:
                     kind, msg = state.submit_mfa(field("code"))
                 else:
                     return self._send(400, "<h1>Unexpected request</h1>")
