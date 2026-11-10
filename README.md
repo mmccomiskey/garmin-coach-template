@@ -6,7 +6,8 @@ status, and build workouts that sync to your watch. Works with
 **Claude Code** or **Cline**.
 
 Everything runs on your own computer. Your Garmin password is typed once
-into Garmin's login tool and never shared with the AI or anyone else.
+into a login page in your browser that sends it straight to Garmin. The
+AI never sees it, and neither does anyone else.
 
 ## Pick an assistant
 
@@ -104,6 +105,10 @@ chats.
   list. Claude Code reads it directly; Cline gets a copy in its own MCP
   settings during `/setup`, so after updating the pin, Cline users need
   to re-run `/setup` to pick it up.
+- `scripts/garmin-login.py` is the browser login. It pins its own
+  `garminconnect` version in the header; keep it matched to the one the
+  pinned `garmin_mcp` uses, and copy any login-flow changes from
+  `garmin_mcp/auth_cli.py`.
 
 This is a coaching helper, not medical advice. See a doctor or physical
 therapist for pain that's sharp, getting worse, or not going away.
