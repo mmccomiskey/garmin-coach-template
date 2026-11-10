@@ -87,9 +87,22 @@ done, and say so.
    `garmin` shows a green dot in the MCP Servers panel; if it shows an
    error, read it and fix the entry.
 
-5. **Test it.** Call `get_devices` and `get_activities` (limit 3), and
-   `get_sleep_summary` for today. Show the watch model, the last 3
-   activities, and last night's sleep in a short friendly summary.
+5. **Test it.** Use only the Garmin MCP tools themselves: call
+   `get_devices` and `get_activities` (limit 3), and `get_sleep_summary`
+   for today. Show the watch model, the last 3 activities, and last
+   night's sleep in a short friendly summary.
+
+   Never test the server by running `garmin-mcp` in a terminal or
+   writing a script to talk to it. It's a stdio server meant to be run by
+   the app; run by hand it just waits for input, and that hangs or times
+   out the session.
+
+   If the Garmin tools aren't available yet, that's normal right after
+   connecting: the app may not load new MCP tools until the next message
+   or a new session. Tell the athlete to send another message (in Cline)
+   or start a new session in this folder (in Claude Code), then try the
+   tools again. If they still don't appear, check the server's status in
+   the app's MCP list and fix the config entry.
 
 6. **Build the profile.** Copy `athlete/profile.example.md` to
    `athlete/profile.md`. Fill in what you can from Garmin (recent weekly
