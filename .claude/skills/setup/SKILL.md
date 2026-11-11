@@ -10,7 +10,25 @@ done, and say so.
 1. **Check the computer.** Detect macOS or Windows. Check whether `uv` and
    `uvx` are installed (`uvx --version`).
 
-2. **Install uv if missing.** It downloads and runs the Garmin connector.
+   Nothing in this setup needs Homebrew, git, Xcode, or an admin
+   password. Don't run `git`, `brew`, or `xcode-select`: on a Mac without
+   developer tools, `git` pops up a large Apple download that isn't
+   needed here.
+
+2. **Install uv if missing.** Before running anything, explain it in
+   plain words and wait for the athlete's OK. Cover:
+   - What it is: uv is a free, widely used tool from Astral that
+     downloads and runs Python programs. Here it runs the Garmin
+     connector and the login page.
+   - Why it's safe: it installs only into their own user folder
+     (`~/.local/bin`), needs no admin password, and doesn't change the
+     system or other apps. It brings its own copy of Python.
+   - How to undo it: delete `~/.local/bin/uv` and `~/.local/bin/uvx`
+     (Windows: the same files under `%USERPROFILE%\.local\bin`).
+   - That the install command comes from uv's official site,
+     astral.sh.
+
+   Then run:
    - macOS: `curl -LsSf https://astral.sh/uv/install.sh | sh`
    - Windows: `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
 
@@ -49,9 +67,9 @@ done, and say so.
 
    **Fallback: the terminal login.** Use it only if the script won't
    start (for example, `uv` can't download its one dependency). The
-   command, with the absolute uvx path and the git URL from `.mcp.json`
+   command, with the absolute uvx path and the `--from` URL in `.mcp.json`
    so the version matches:
-   `<full uvx path> --python 3.12 --from <git URL from .mcp.json> garmin-mcp-auth`
+   `<full uvx path> --python 3.12 --from <URL from .mcp.json> garmin-mcp-auth`
 
    Tell them a terminal will open and ask for their email, password and
    code, that password characters won't show, and to come back and say
@@ -65,7 +83,7 @@ done, and say so.
       - macOS: `osascript -e 'tell application "Terminal" to activate' -e 'tell application "Terminal" to do script "<login command>"'`.
         The first time, macOS asks to let the app control Terminal;
         tell the athlete to click OK.
-      - Windows: `Start-Process powershell -ArgumentList '-NoExit','-Command','& "<full uvx path>" --python 3.12 --from <git URL> garmin-mcp-auth'`
+      - Windows: `Start-Process powershell -ArgumentList '-NoExit','-Command','& "<full uvx path>" --python 3.12 --from <URL from .mcp.json> garmin-mcp-auth'`
    c. **Cline in VS Code:** run the command normally; it opens in VS
       Code's terminal panel, where the athlete can click and type.
    d. **If none of those work**, tell them how to open a terminal
@@ -77,7 +95,7 @@ done, and say so.
 
    **Verify.** Either way, confirm it worked without asking them to read
    anything back:
-   `<full uvx path> --python 3.12 --from <git URL> garmin-mcp-auth --verify`
+   `<full uvx path> --python 3.12 --from <URL from .mcp.json> garmin-mcp-auth --verify`
 
    If the login or verify fails, follow the retry rule in AGENTS.md.
 
@@ -87,7 +105,7 @@ done, and say so.
    `.mcp.json`. Tell the athlete to start a new session in this folder
    and approve the `garmin` server when asked. If it fails to start
    because `uvx` isn't found, add a local override with the full path:
-   `claude mcp add garmin --scope local -e GARMIN_ENABLED_TOOLS=<same list as .mcp.json> -- <full uvx path> --python 3.12 --from <same git URL as .mcp.json> garmin-mcp`
+   `claude mcp add garmin --scope local -e GARMIN_ENABLED_TOOLS=<same list as .mcp.json> -- <full uvx path> --python 3.12 --from <same URL as .mcp.json> garmin-mcp`
    then start a new session again.
 
    **Cline:** add the server to Cline's MCP settings file,
