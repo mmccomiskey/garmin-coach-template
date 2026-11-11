@@ -83,11 +83,11 @@ when building workouts.
 Paste this into Cline:
 
 ```text
-Download the project at
-https://github.com/mmccomiskey/garmin-coach-template into this folder
-(use git if it's installed, otherwise download the ZIP from GitHub and
-unzip it here, so AGENTS.md ends up directly in this folder). Then read
-AGENTS.md and .claude/skills/setup/SKILL.md and walk me through setup.
+Download this ZIP and unzip it into this folder, so AGENTS.md ends up
+directly in this folder (don't use git):
+https://github.com/mmccomiskey/garmin-coach-template/archive/refs/heads/main.zip
+Then read AGENTS.md and .claude/skills/setup/SKILL.md and walk me
+through setup.
 I'm not a developer, so explain each step in plain words before you do
 it.
 ```

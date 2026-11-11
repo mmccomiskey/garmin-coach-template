@@ -51,11 +51,11 @@ data private.
 ### The setup message
 
 ```text
-Download the project at
-https://github.com/mmccomiskey/garmin-coach-template into this folder
-(use git if it's installed, otherwise download the ZIP from GitHub and
-unzip it here, so AGENTS.md ends up directly in this folder). Then read
-AGENTS.md and .claude/skills/setup/SKILL.md and walk me through setup.
+Download this ZIP and unzip it into this folder, so AGENTS.md ends up
+directly in this folder (don't use git):
+https://github.com/mmccomiskey/garmin-coach-template/archive/refs/heads/main.zip
+Then read AGENTS.md and .claude/skills/setup/SKILL.md and walk me
+through setup.
 I'm not a developer, so explain each step in plain words before you do
 it.
 ```
@@ -102,9 +102,12 @@ chats.
 - Skills live in `.claude/skills/`, which both tools load as slash
   commands.
 - `.mcp.json` is the source of truth for the server version and tool
-  list. Claude Code reads it directly; Cline gets a copy in its own MCP
-  settings during `/setup`, so after updating the pin, Cline users need
-  to re-run `/setup` to pick it up.
+  list. The server is pinned by commit as a GitHub ZIP
+  (`.../archive/<sha>.zip`), not `git+`, so a Mac without developer
+  tools never needs git; bump the sha to update. Claude Code reads it
+  directly; Cline gets a copy in its own MCP settings during `/setup`, so
+  after updating the pin, Cline users need to re-run `/setup` to pick it
+  up.
 - `scripts/garmin-login.py` is the browser login. It pins its own
   `garminconnect` version in the header; keep it matched to the one the
   pinned `garmin_mcp` uses, and copy any login-flow changes from
