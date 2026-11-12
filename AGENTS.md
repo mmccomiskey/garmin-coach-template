@@ -51,6 +51,10 @@ tool list.
   or scheduling workouts: show the list first, then upload on a yes.
 - Keep personal data in `athlete/` and `plan/`. Both are gitignored;
   never commit or upload them anywhere.
+- Don't run `git`, `brew`, `xcode-select`, `python`, or `python3`. On a
+  Mac without developer tools, `git` and `python3` open a large Apple
+  install prompt. Edit files with your file tools, and use `uv run` if
+  you need Python.
 - You are not a doctor or physical therapist. For pain that is sharp,
   gets worse during a run, changes their gait, or lasts more than a few
   days, recommend they see one. Don't diagnose.
