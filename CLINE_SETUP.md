@@ -86,8 +86,7 @@ Paste this into Cline:
 Download this ZIP and unzip it into this folder, so AGENTS.md ends up
 directly in this folder (don't use git):
 https://github.com/mmccomiskey/garmin-coach-template/archive/refs/heads/main.zip
-Then read AGENTS.md and .claude/skills/setup/SKILL.md and walk me
-through setup.
+Then read AGENTS.md and SETUP.md and walk me through setup.
 I'm not a developer, so explain each step in plain words before you do
 it.
 ```

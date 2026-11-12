@@ -5,3 +5,13 @@ plan/*
 !plan/README.md
 .claude/settings.local.json
 .DS_Store
+
+# Written by scripts/install-harness.py from coach/ (edit coach/ instead)
+CLAUDE.md
+.mcp.json
+.claude/skills/
+.claude/settings.json
+.cline/
+.agents/
+.cursor/
+.github/skills/

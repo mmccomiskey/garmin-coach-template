@@ -1,7 +1,8 @@
 # Garmin running coach
 
-This folder turns an AI coding assistant (Claude Code or Cline) into a
-running coach for one person, the athlete who owns it. The assistant
+This folder turns an AI coding assistant (Claude Code, Cline, Codex,
+Cursor, or VS Code with Copilot) into a running coach for one person,
+the athlete who owns it. The assistant
 reads their Garmin Connect data (runs, sleep, HRV, training status)
 through the Garmin MCP server and can create workouts that sync to their
 watch.
@@ -11,23 +12,25 @@ avoid jargon, and say what a command does before running it.
 
 ## Which assistant you are
 
-The two tools load the Garmin server differently:
+Each assistant keeps its slash commands, MCP servers, and permissions
+in its own place. The sources of truth live in `coach/`:
 
-- **Claude Code** reads the `garmin` server from `.mcp.json` in this
-  folder and asks the athlete to approve it once.
-- **Cline** has no per-project MCP config. The `garmin` server has to be
-  added to Cline's own MCP settings file once, during `/setup`.
+- `coach/mcp.json`: the Garmin server (pinned version, enabled tools,
+  and which tools are read-only).
+- `coach/skills/`: the `/setup`, `/checkin`, and `/week` commands.
 
-Either way, the server definition (command, args, `GARMIN_ENABLED_TOOLS`)
-must match `.mcp.json`, which is the source of truth for the version and
-tool list.
+`scripts/install-harness.py` copies those into the right files for the
+assistant in use (see step 4 of `SETUP.md`). Never hand-edit the files
+it writes; change `coach/` and re-run the script instead. If the Garmin
+connection or a command is missing, re-running it is the fix.
 
 ## Start of every session
 
 1. Check whether setup is done:
    - Is the `garmin` MCP server connected? (Try `get_devices`.)
    - Does `athlete/profile.md` exist?
-2. If either answer is no, tell the athlete and offer to run `/setup`.
+2. If either answer is no, tell the athlete and offer to run setup
+   (`/setup`, or follow `SETUP.md` if that command isn't there yet).
    Don't start coaching on a half-finished setup.
 3. If setup is done, read `athlete/profile.md`, the latest entries in
    `athlete/log.md`, and anything in `plan/` before answering.

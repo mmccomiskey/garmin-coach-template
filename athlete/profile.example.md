@@ -1,6 +1,6 @@
 # Athlete profile
 
-Claude copies this to `profile.md` during `/setup` and keeps it current.
+The coach copies this to `profile.md` during setup and keeps it current.
 
 ## Goals
 - Goal race:
