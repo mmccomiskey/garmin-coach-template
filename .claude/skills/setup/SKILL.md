@@ -10,10 +10,11 @@ done, and say so.
 1. **Check the computer.** Detect macOS or Windows. Check whether `uv` and
    `uvx` are installed (`uvx --version`).
 
-   Nothing in this setup needs Homebrew, git, Xcode, or an admin
-   password. Don't run `git`, `brew`, or `xcode-select`: on a Mac without
-   developer tools, `git` pops up a large Apple download that isn't
-   needed here.
+   Nothing in this setup needs Homebrew, git, Xcode, Python, or an admin
+   password. Don't run `git`, `brew`, `xcode-select`, `python`, or
+   `python3`: on a Mac without developer tools, `git` and `python3` pop
+   up a large Apple download that isn't needed here. To edit a config
+   file, use your file-editing tools; if you need Python, use `uv run`.
 
 2. **Install uv if missing.** Before running anything, explain it in
    plain words and wait for the athlete's OK. Cover:
