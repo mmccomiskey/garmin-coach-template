@@ -84,7 +84,7 @@ changed in the plan. Newest entries at the top.
   context window. Whenever the athlete asks about a run in natural language
   ("How was my run today?", "Break down my long run", "How did I do yesterday?"),
   or during check-ins, automatically use `uv run scripts/analyze-run.py [activity_id | latest]`.
-  The athlete does not need to type `/analyze`—it should trigger automatically from
+  The athlete does not need to type `/analyze`; it should trigger automatically from
   conversational questions. It crunches pace, cadence, elevation, and cardiac drift
   (aerobic decoupling) in Python and returns a compact 15-line summary, saving thousands
   of tokens while preventing calculation errors.
