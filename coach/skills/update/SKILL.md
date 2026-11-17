@@ -1,6 +1,6 @@
 ---
 name: update
-description: Check for and install updates to the Garmin running coach template from GitHub while preserving all personal data, logs, profile notes, and custom skills. Use when the athlete types /update or asks to update.
+description: Check for and install updates to the Garmin running coach template from GitHub while preserving all personal data, logs, profile notes, and custom skills. Use when the athlete types /update, asks to update, asks to check for template updates, or asks if there are new coach features.
 ---
 
 Check for and install updates to the Garmin running coach.

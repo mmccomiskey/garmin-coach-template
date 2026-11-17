@@ -1,6 +1,6 @@
 ---
 name: analyze
-description: Deep-dive analysis of a recent run or long run using code-side calculation to save tokens. Analyzes cardiac drift, aerobic stability, split pacing, and heart rate vs easy targets. Use when the athlete types /analyze, asks to break down a run, or checks their long run.
+description: Token-efficient, code-driven deep dive into a run. Analyzes cardiac drift (aerobic decoupling), pacing stability, splits, and heart rate vs easy ceilings using scripts/analyze-run.py. Use when the athlete types /analyze, asks how their run went, asks to break down a long run or workout splits, asks about their cardiac drift, or asks how they performed today or yesterday.
 ---
 
 Perform a token-efficient, code-driven breakdown of a run.

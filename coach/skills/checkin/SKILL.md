@@ -1,6 +1,6 @@
 ---
 name: checkin
-description: Running coach check-in. Reviews last night's sleep, the HRV trend, resting HR, and the past week's runs, then recommends what to do today. Use when the athlete types /checkin or asks how they're doing or whether to run today.
+description: Running coach check-in. Reviews last night's sleep, HRV trend, resting HR, training readiness, and recent runs, then recommends what to do today. Use when the athlete types /checkin, asks how they're doing, asks whether to run today, asks about their morning recovery/sleep/readiness, or asks if they're ready for a workout.
 ---
 
 Give the athlete a short check-in.

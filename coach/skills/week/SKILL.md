@@ -1,6 +1,6 @@
 ---
 name: week
-description: Plans the athlete's next training week from their plan and recent training, then creates the workouts on Garmin after they approve. Use when the athlete types /week or asks for next week's runs.
+description: Plans the athlete's next training week from their plan and recent training, then creates the workouts on Garmin after approval. Use when the athlete types /week, asks to plan the week, asks what to run next week, asks to schedule upcoming workouts, or wants to set up next week's training.
 ---
 
 Plan the athlete's next training week and create the workouts.

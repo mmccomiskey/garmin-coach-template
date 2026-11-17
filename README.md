@@ -133,6 +133,11 @@ chats.
   `garminconnect` version in the header; keep it matched to the one the
   pinned `garmin_mcp` uses, and copy any login-flow changes from
   `garmin_mcp/auth_cli.py`.
+- `version.json` tracks the template release version. When editing template
+  files (`coach/`, `scripts/`, `AGENTS.md`), bump the version so athletes running
+  `/update` receive the changes. Run `uv run scripts/check-version.py --bump [minor|patch]`,
+  or run `--install-hook` to enforce it via git pre-commit hook.
+
 
 This is a coaching helper, not medical advice. See a doctor or physical
 therapist for pain that's sharp, getting worse, or not going away.
