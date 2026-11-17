@@ -8,7 +8,9 @@ Give the athlete a short check-in.
 1. Pull last night's sleep (`get_sleep_summary`), the HRV trend for the
    last 14 days, today's resting HR, and training readiness.
 2. Pull runs from the last 7 days with `get_activities_by_date`. For any
-   run since the last log entry, get splits.
+   run since the last log entry, get a compact breakdown with
+   `uv run scripts/analyze-run.py <activity_id>` to check splits, pacing,
+   and cardiac drift without token bloat.
 3. Compare with `athlete/profile.md` and the plan in `plan/`.
 
 Reply in this order, keeping it brief:

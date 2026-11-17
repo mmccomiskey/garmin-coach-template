@@ -80,11 +80,14 @@ changed in the plan. Newest entries at the top.
   night. Garmin's HRV status is based on a 7-day average and lags.
 - Training readiness and Body Battery are rough guides. Weigh them with
   how the athlete says they feel; their report wins when they disagree.
-- For deep run analysis, avoid dumping massive raw split JSON into your
-  context window. Use the hybrid tool `uv run scripts/analyze-run.py [activity_id | latest]`.
-  It crunches pace, cadence, elevation, and cardiac drift (aerobic decoupling)
-  in Python and returns a compact 15-line summary, saving thousands of tokens
-  while preventing calculation errors.
+- For run and split analysis, avoid dumping massive raw split JSON into your
+  context window. Whenever the athlete asks about a run in natural language
+  ("How was my run today?", "Break down my long run", "How did I do yesterday?"),
+  or during check-ins, automatically use `uv run scripts/analyze-run.py [activity_id | latest]`.
+  The athlete does not need to type `/analyze`—it should trigger automatically from
+  conversational questions. It crunches pace, cadence, elevation, and cardiac drift
+  (aerobic decoupling) in Python and returns a compact 15-line summary, saving thousands
+  of tokens while preventing calculation errors.
 - Easy runs should be easy. If easy runs keep drifting above the
   athlete's easy HR range, say so kindly and suggest slowing down.
 
