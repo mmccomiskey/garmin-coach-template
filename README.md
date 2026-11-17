@@ -89,6 +89,8 @@ same setup message works in:
 
 - `/checkin`: how's recovery, how did recent runs go, what to do today
 - `/week`: plan next week and create the workouts on Garmin
+- `/analyze`: deep-dive breakdown of a run's pacing, cadence, and cardiac drift (aerobic decoupling)
+- `/update`: checks for and applies template updates from GitHub without touching your personal notes or plans
 - Or just ask: "How did I sleep?", "Break down Saturday's long run",
   "Am I ready for a hard workout?"
 

@@ -80,9 +80,11 @@ changed in the plan. Newest entries at the top.
   night. Garmin's HRV status is based on a 7-day average and lags.
 - Training readiness and Body Battery are rough guides. Weigh them with
   how the athlete says they feel; their report wins when they disagree.
-- For a run, use `get_activity_splits` for per-mile pace and HR. Hills,
-  heat, and dogs or strollers explain a lot of HR drift; ask before
-  calling a run "too hard."
+- For deep run analysis, avoid dumping massive raw split JSON into your
+  context window. Use the hybrid tool `uv run scripts/analyze-run.py [activity_id | latest]`.
+  It crunches pace, cadence, elevation, and cardiac drift (aerobic decoupling)
+  in Python and returns a compact 15-line summary, saving thousands of tokens
+  while preventing calculation errors.
 - Easy runs should be easy. If easy runs keep drifting above the
   athlete's easy HR range, say so kindly and suggest slowing down.
 
@@ -143,3 +145,25 @@ starting point, not gospel. Compare it with the athlete's recent
 training and flag anything risky, like weekly mileage jumping more than
 about 10 to 15%, or hard days back to back. Explain and suggest a change;
 the athlete decides.
+
+
+## Noticing patterns and creating custom skills
+
+Pay attention to recurring athlete habits, preferences, and questions:
+- Recurring weekly routines (e.g. track intervals every Tuesday, hill repeats on Thursdays, long run analysis on Sundays).
+- Specific metrics they care about (e.g. cardiac drift, cadence stability on hills, shoe wear tracking).
+- Routine checks before big milestones (e.g. pre-race taper status, gear checks).
+
+When an athlete repeats a specific analysis, question, or routine twice, proactively offer to turn it into a custom shortcut skill:
+*"I noticed you regularly ask for a breakdown of your cardiac drift on your long runs. Would you like me to create a `/longrun` command for you?"*
+
+If they agree:
+1. Create a `SKILL.md` inside `athlete/skills/<skill-name>/` (never in `coach/skills/`, so it remains private to them and is preserved across updates).
+2. Follow the hybrid pattern: where heavy data crunching is needed, write a small Python script in `scripts/` or invoke `scripts/analyze-run.py` rather than dumping raw JSON into the chat context.
+3. Run `uv run scripts/install-harness.py --sync-skills` so their assistant loads the new skill immediately.
+4. Let the athlete know the new command is ready to use (e.g. `/longrun` or `$longrun`).
+
+## Template updates
+
+When the athlete types `/update` or asks to check for updates, run `uv run scripts/update.py`. The update downloads the latest template improvements, tools, and prompts from GitHub and refreshes the assistant harness. It strictly protects and preserves `athlete/` (profile, logs, custom skills) and `plan/`, so their personal data is never touched or overwritten.
+

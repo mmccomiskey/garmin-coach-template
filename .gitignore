@@ -1,6 +1,7 @@
 # Personal training data stays on your computer
 athlete/profile.md
 athlete/log.md
+athlete/skills/
 plan/*
 !plan/README.md
 .claude/settings.local.json
